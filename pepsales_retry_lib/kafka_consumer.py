@@ -10,7 +10,6 @@ class KafkaConsumerUtility:
         self,
         bootstrap_servers,
         topic,
-        group_id,
         sasl_username,
         sasl_password,
         security_protocol='SASL_SSL',
@@ -18,7 +17,7 @@ class KafkaConsumerUtility:
         mongodb_uri=None,
         mongodb_collection_name=None
     ):
-        if not all([bootstrap_servers, topic, group_id, sasl_username, sasl_password]):
+        if not all([bootstrap_servers, topic, sasl_username, sasl_password]):
             raise ValueError("Missing one or more required Kafka consumer parameters")
 
         self.topic = topic
@@ -36,7 +35,6 @@ class KafkaConsumerUtility:
         self.consumer = KafkaConsumer(
             self.topic,
             bootstrap_servers=bootstrap_servers,
-            group_id=group_id,
             auto_offset_reset='earliest',
             enable_auto_commit=True,
             security_protocol=security_protocol,
