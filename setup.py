@@ -2,12 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name="pepsales_retry_lib",
-    version="1.0.1",
+    version="1.0.3",
     packages=find_packages(),
     install_requires=[
         "kafka-python>=2.0.2",
-        "requests>=2.32.3",
-        "pymongo>=4.10.1",
+        "requests>=2.31.0",
+        "pymongo>=3.10.1",
+        "confluent-kafka>=2.3.0",
+        "datetime"
     ],
     author="Pepsales",
     author_email="abhinandan@pepsales.ai",
